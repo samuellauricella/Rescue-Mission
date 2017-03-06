@@ -1,0 +1,19 @@
+<h1> Questions </h1>
+ <table>
+  <thead>
+    <tr>
+    </tr>
+
+  </thead>
+   <tbody>
+    <% @questions.each do |question| %>
+      <tr>
+        <td><%= link_to question.title, question %></td>
+        <td> <a href="<%= edit_question_path(question) %>" class="button">Edit Question</a> </td>
+
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'New Question', new_question_path %>

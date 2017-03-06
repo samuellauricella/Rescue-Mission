@@ -1,0 +1,22 @@
+<h1>New Review for <%= @question.title %></h1>
+
+<%= form_for [@question, @comment] do |f| %>
+ 
+ <div class="">
+ <div>
+  <%= f.label :title %>
+ </div>
+  <%= f.text_area :title, size: "-24x-24" %>
+ </div>
+
+ <div class="">
+  <%= f.label :body %>
+  <div>
+  <%= f.text_area :body, size: "-24x-24" %>
+  </div>
+ </div>
+
+ <div class="">
+  <%= f.submit %>
+ </div>
+<% end %>

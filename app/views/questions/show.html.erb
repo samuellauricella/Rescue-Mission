@@ -1,0 +1,15 @@
+
+<h1> Title: <%= @question.title %> </h1>
+<p> Description: <%= @question.description %></p>
+
+<%=render 'comments_form' %>
+<p id="error"><%= notice %></p>
+
+<h2> Comments </h2>
+
+<ul> <% @comments.each do |comment | %> 
+	<li> <%= comment.body %> </li>
+	<% end %>
+</ul>
+
+<%= link_to 'Back', questions_path %>

@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="small-10 large-centered columns">
+    <div class="form-actions">
+      <h1 class="subheader">Edit Question</h1>
+      <p>(or <%= link_to 'Delete', question_path(@question.id),
+        method: :delete, data: { confirm: 'Are you sure?' } %>)</p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="small-10 large-centered columns">
+    <%= form_for :question, url: question_path(@question), method: :patch do |f| %>
+
+      <% if @question.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@question.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+          <ul>
+          <% @question.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="">
+        <%= f.label :title %>
+        <div class="">
+          <%= f.text_field :title %>
+        </div>
+      </div>
+
+      <div class="">
+        <%= f.label :description %>
+        <div class="">
+          <%= f.text_area(:description, size: "24x24") %>
+        </div>
+      </div>
+
+      <div class="">
+        <%= f.submit 'Submit'  %>
+        <%= link_to 'Back', questions_path %>
+      </div>
+    <% end %>
+  </div>
+</div>
